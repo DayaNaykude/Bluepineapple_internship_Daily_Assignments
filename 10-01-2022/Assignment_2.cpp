@@ -17,7 +17,7 @@ int main(){
 		exit(0);
 	}
 	
-	cout<<"perfect Numbers between 1 to" <<upperBound <<" as follows:"<<endl;
+	cout<<"perfect Numbers between 1 to " <<upperBound <<" are:"<<endl;
 	
 	for(int i=1;i<=upperBound;i++){
 		
@@ -32,4 +32,5 @@ int main(){
 			cout<<i<<endl;
 		}
 	}
+	return 0;
 }

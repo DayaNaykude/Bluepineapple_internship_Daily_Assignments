@@ -32,7 +32,7 @@ int main(){
 		while(permission==1);
 		
 	
-	
+	return 0;
 	
 }
 
