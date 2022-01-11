@@ -1,11 +1,11 @@
-// Write a program to convert number into words
+// Write a program to convert number into words.
 
 #include <iostream>
 #include<string.h>
 
 using namespace std;
 
-string numberToWordsForTwoDigit(int n){
+string OneTwoDigit(int n){
 	string outputWord;
 	int num;
 	num=(n/10)*10;
@@ -74,9 +74,6 @@ string numberToWordsForTwoDigit(int n){
 		return outputWord;
 	}
 		switch(n%10){
-			case 0:{outputWord+="Zero ";
-					break;
-				}
 			case 1:{outputWord+="One ";
 				break;
 			}
@@ -112,15 +109,56 @@ string numberToWordsForTwoDigit(int n){
 		
 }
 
-string numberToWords(int n){
+string numberToWords(long int n){
 	string output;
-	
+	//for zero
+	if(n==0){
+		return "zero";
+	}
+	//for two digit
 	if(n<100){
-		output=numberToWordsForTwoDigit(n);
+		output=OneTwoDigit(n);
+		return output;
 	}
 	
-	//TODO:for three digit and onwards
-	//output=numberToWordsForTwoDigit((n/100),"Hundred ")
+	//for three digit and onwards
+	if((n/100)<10){
+		output=OneTwoDigit((n/100))+"Hundred "+OneTwoDigit((n%100));
+	}
+	//for four-five digit
+	else if((n/1000)<100){
+		if(((n%1000)/100)==0){
+			output=OneTwoDigit((n/1000))+"Thousand "+OneTwoDigit((n%100));
+		}else{
+			output=OneTwoDigit((n/1000))+"Thousand "+OneTwoDigit(((n%1000)/100))+"Hundred "
+			+OneTwoDigit((n%100));
+		}
+	}
+	//for six-seven digit
+	else if((n/100000)<100){
+		if((n%100000)/1000==0 && ((n%1000)/100)==0 ){
+			output=OneTwoDigit((n/100000))+"Lakh "+OneTwoDigit((n%100));
+		}
+		else if((n%100000)/1000==0){
+			output=OneTwoDigit((n/100000))+"Lakh "+OneTwoDigit(((n%1000)/100))+"Hundred "
+			+OneTwoDigit((n%100));
+		}
+		else if(((n%1000)/100)==0 ){
+			output=OneTwoDigit((n/100000))+"Lakh "+OneTwoDigit((n%100000)/1000)+"Thousand "+
+			OneTwoDigit((n%100));
+		}
+		else{
+			output=OneTwoDigit((n/100000))+"Lakh "+OneTwoDigit((n%100000)/1000)+"Thousand "+
+			OneTwoDigit(((n%1000)/100))+"Hundred "
+			+OneTwoDigit((n%100));
+		}
+	}
+	//for eight digit
+	else if((n/10000000)<100){
+		output=OneTwoDigit((n/10000000))+"Crore ";	
+	}
+	
+	
 	return output;
 }
 
@@ -129,12 +167,18 @@ int main(){
 	int permission;
 	do
 	{
-		int n;
+		long int n;
 		
-		cout<<"Enter the Number"<<endl;
+		input:
+		cout<<"Enter the Number upto 1 crore"<<endl;
 		cin>>n;
 		
-		cout<<numberToWords(n)<<endl;
+		if(n>10000000){
+			cout<<"number is greter then 1 crore"<<endl;
+			goto input;
+		}
+		
+		cout<<endl<<numberToWords(n)<<endl<<endl;
 		
 		cout<<"Do You Want to check for another number(1/0)"<<endl;
 			cin>>permission;
