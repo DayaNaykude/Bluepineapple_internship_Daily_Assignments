@@ -167,8 +167,9 @@ void insertAtPos(){
 	
 	printf("Enter the Position: ");
 	scanf("%d",position);
-	
+	printf("hi");
 	if(position==1){
+		printf("%d",position);
 		insertAtBeg();
 	}
 	else if(position<1 || position>countBook){
