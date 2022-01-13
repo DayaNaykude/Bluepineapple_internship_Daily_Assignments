@@ -47,17 +47,22 @@ int main()
     //     cout << (*itr).first << " " << (*itr).second << endl;
     // }
 
-    cout << "Enter the word for check his frequency : ";
-    cin >> str;
-
-    itr = word.find(str);
-
-    if (itr != word.end())
-        cout << "frequency of word " << str << " is " << (*itr).second << endl;
-    else
+    do
     {
-        cout << str << " is not present in the given paragraph";
-    }
+        cout << "Enter the word for check his frequency : ";
+        cin >> str;
+
+        itr = word.find(str);
+
+        if (itr != word.end())
+            cout << "frequency of word " << str << " is " << (*itr).second << endl;
+        else
+        {
+            cout << str << " is not present in the given paragraph"<<endl;
+        }
+        cout << "Do you want to check for another word(1/0)" << endl;
+        cin >> choice;
+    } while (choice == 1);
 
     return 0;
 }

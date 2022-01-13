@@ -372,7 +372,7 @@ void searchBook()
 
 		temp = head;
 		while (temp != NULL)
-		{	
+		{
 			if (temp->bookId == id)
 			{
 				printf("Book Details:\n");

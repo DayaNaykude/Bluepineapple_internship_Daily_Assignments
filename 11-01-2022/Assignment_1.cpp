@@ -8,7 +8,7 @@ using namespace std;
 char isPalindrome(char string[]){
 	int length=strlen(string);
 	
-	for(int i=0;i<length;i++){
+	for(int i=0;i<length/2;i++){
 		if(string[i]!=string[length-1-i])
 			return false;
 	}
