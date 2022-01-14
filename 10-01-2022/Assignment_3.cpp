@@ -5,7 +5,7 @@
 
 using namespace std;
 
-int calculate_occurance(int number)
+void calculate_occurance(long int number)
 {
 
 	int count[10];
@@ -13,6 +13,11 @@ int calculate_occurance(int number)
 	for (int i = 0; i < 10; i++)
 	{
 		count[i] = 0;
+	}
+
+	if (number == 0)
+	{
+		count[0] = 1;
 	}
 
 	while (number)
@@ -23,18 +28,52 @@ int calculate_occurance(int number)
 	}
 	for (int i = 0; i < 10; i++)
 	{
-		cout << "the occurance of " << i << " in the given number is " << count[i] << " times" << endl;
+		cout << "the occurance of " << i << " in the " << number << " is " << count[i] << " times" << endl;
 	}
 }
 
 int main()
 {
+	int choice;
+	do
+	{
+		long int number;
 
-	int number;
-	int count_container[10];
+		for (;;)
+		{
+			cout << "Enter the Integer : ";
 
-	cout << "Enter the number : ";
-	cin >> number;
+			if (cin >> number)
+			{
 
-	calculate_occurance(number);
+				break;
+			}
+			else
+			{
+				cout << "Please enter a valid integer " << endl;
+				cin.clear();
+				cin.ignore(80, '\n');
+			}
+		}
+
+		calculate_occurance(number); //function call
+
+		for (;;)
+		{
+			cout << "Do you want to continue(1/0) : ";
+
+			if (cin >> choice)
+			{
+
+				break;
+			}
+			else
+			{
+				cout << "Please enter a valid integer " << endl;
+				cin.clear();
+				cin.ignore(80, '\n');
+			}
+		}
+
+	} while (choice != 0);
 }

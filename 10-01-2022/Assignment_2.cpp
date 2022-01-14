@@ -5,22 +5,13 @@
 
 using namespace std;
 
-int main()
+void perfectNumbers(int upperBound)
 {
-
-	int upperBound;
-
-	cout << "Enter the positive integer: ";
-	cin >> upperBound;
-
-	if (upperBound < 0)
+	if (upperBound < 6)
 	{
-		cout << "Number You enterd is not positive integer";
-		exit(0);
+		cout << "No perfect Number upto: " << upperBound << endl;
+		return;
 	}
-
-	cout << "perfect Numbers between 1 to " << upperBound << " are:" << endl;
-
 	for (int i = 1; i <= upperBound; i++)
 	{
 
@@ -37,5 +28,58 @@ int main()
 			cout << i << endl;
 		}
 	}
+}
+int main()
+{
+	int choice = 0;
+	do
+	{
+		int upperBound;
+
+	start:
+		for (;;)
+		{
+			cout << "Enter the  positive Integer Number  : ";
+
+			if (cin >> upperBound)
+			{
+
+				break;
+			}
+			else
+			{
+				cout << "Please enter a valid integer " << endl;
+				cin.clear();
+				cin.ignore(80, '\n');
+			}
+		}
+
+		if (upperBound < 1)
+		{
+			cout << "Number You enterd is not positive integer" << endl;
+			goto start;
+		}
+
+		cout << "perfect Numbers upto " << upperBound << " are:" << endl;
+		perfectNumbers(upperBound);
+		for (;;)
+		{
+			cout << "Do you want to continue(1/0) : ";
+
+			if (cin >> choice)
+			{
+
+				break;
+			}
+			else
+			{
+				cout << "Please enter a valid integer " << endl;
+				cin.clear();
+				cin.ignore(80, '\n');
+			}
+		}
+
+	} while (choice != 0);
+
 	return 0;
 }

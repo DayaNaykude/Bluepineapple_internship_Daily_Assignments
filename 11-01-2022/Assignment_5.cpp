@@ -49,7 +49,7 @@ void deleteBook()
 
     for (;;)
     {
-        cout << "Enter the Id of Book : ";
+        cout << "Enter the Id of Book which you want to delete : ";
         if (cin >> idForDelete)
         {
             break;
@@ -62,9 +62,14 @@ void deleteBook()
         }
     }
 
-    book.erase(idForDelete);
-
-    cout << "Book Deleted Successfully" << endl;
+    if (book.erase(idForDelete))
+    {
+        cout << "Book Deleted Successfully" << endl;
+    }
+    else
+    {
+        cout << "BookId You enterd is not present !" << endl;
+    }
 }
 void dispalyBooks()
 {
