@@ -1,6 +1,5 @@
 // cross word program using trie tree data structure.
 
-
 #include <bits/stdc++.h>
 #include <string>
 
@@ -43,7 +42,6 @@ void insert(struct TrieNode *root, string str)
         temp = temp->children[index];
     }
 
-    
     temp->isEndOfWord = true;
 }
 
@@ -53,7 +51,7 @@ string search(struct TrieNode *root, int length, string s)
 {
     struct TrieNode *temp = root;
 
-    if (length == 1 && temp->children[s[0] - 'a'])
+    if (length == 1 && temp->children[s[0] - 'a'] && temp->children[s[0] - 'a']->isEndOfWord)
     {
         cout << "\t" << s << endl;
         return s;
@@ -108,7 +106,7 @@ string search(struct TrieNode *root, int length, string s)
             search(temp->children[i], length, s);
         }
     }
-    
+
     return s;
 }
 
@@ -138,7 +136,7 @@ int main()
     cout << "Enter First Letter of the Word  : ";
     cin >> ch;
 
-    cout << "Enter length of the  : ";
+    cout << "Enter length of the word : ";
     cin >> length;
 
     s += ch;
