@@ -181,6 +181,12 @@ void insertAtEnd()
 
 	countBook++;
 	temp = head;
+
+	if (temp == NULL)
+	{
+		head = newBook;
+		return;
+	}
 	while (temp->next != NULL)
 	{
 		temp = temp->next;
@@ -207,7 +213,7 @@ void insertAtPos()
 		newBook = (struct book *)malloc(sizeof(struct book));
 
 		printf("Enter the Book Id : ");
-		scanf("%d", newBook->bookId);
+		scanf("%d", &newBook->bookId);
 
 		printf("Enter the Book Name : ");
 		scanf("%s", newBook->bookName);
@@ -217,7 +223,7 @@ void insertAtPos()
 		int i = 0;
 		countBook++;
 		temp = head;
-		while (i < position - 1)
+		while (i < position - 2)
 		{
 			temp = temp->next;
 			i++;
@@ -308,7 +314,7 @@ void deleteAtPos()
 	else
 	{
 		temp = head;
-		while (i < position)
+		while (i < position-1)
 		{
 			prevBook = temp;
 			temp = temp->next;
