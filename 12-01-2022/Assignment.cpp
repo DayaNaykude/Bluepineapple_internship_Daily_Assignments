@@ -1,5 +1,6 @@
 // cross word program using trie tree data structure.
 
+#include <iostream>
 #include <bits/stdc++.h>
 #include <string>
 
@@ -8,7 +9,8 @@
 using namespace std;
 
 //defining trie node structure
-
+string output[30];
+int counter = 0;
 struct TrieNode
 {
     struct TrieNode *children[size];
@@ -53,7 +55,8 @@ string search(struct TrieNode *root, int length, string s)
 
     if (length == 1 && temp->children[s[0] - 'a'] && temp->children[s[0] - 'a']->isEndOfWord)
     {
-        cout << "\t" << s << endl;
+        // cout << "\t" << s << endl;
+        output[counter++] = s;
         return s;
     }
 
@@ -61,7 +64,8 @@ string search(struct TrieNode *root, int length, string s)
     {
         if (s.length() == length)
         {
-            cout << "\t" << s << endl;
+            //cout << "\t" << s << endl;
+            output[counter++] = s;
             return s;
         }
     }
@@ -112,16 +116,19 @@ string search(struct TrieNode *root, int length, string s)
 
 int main()
 {
+
     int length;
     char ch;
     string s = "";
 
-    string keys[] = {"a", "as", "assure", "ball", "boy", "cat", "call",
-                     "day", "dog", "dig", "elephant", "eat", "farm", "favour",
-                     "great", "goat", "gathere", "hi", "hello", "hike", "hour",
-                     "in", "ink", "india", "joker", "jet", "king", "kite", "keen",
-                     "lion", "lie", "left", "menu", "next", "new", "ok", "online",
-                     "pc", "private", "queen", "quit", "rose", "rib", "salute", "sir",
+    string keys[] = {"a", "as", "at", "and", "axe", "around", "approximate", "assure", "ball", "boy", "bat", "box", "beat", "basket",
+                     "cat", "call", "catch", "cover", "cofee", "copy", "candle", "cream", "dead", "dash", "does", "define",
+                     "day", "dog", "dig", "date", "devloper", "elephant", "eat", "egg", "easy", "farm", "favour", "fish", "fat", "form", "fuzzy", "funny",
+                     "great", "goat", "gathere", "goverment", "get", "glimpse", "gave", "guts", "gone", "hi", "hello", "hike", "hour", "hat",
+                     "in", "ink", "india", "is", "ideal", "iterate", "if", "integer", "join", "jump", "jaguar", "joker", "jet", "just", "kilo",
+                     "king", "kite", "keen", "knowledge", "kind", "kernel", "karate", "letter", "life", "lily", "listen", "lion",
+                     "lie", "left", "leave", "let", "menu", "mouse", "my", "next", "new", "nothing", "ok", "online", "ox", "object", "over", "order", "overcome",
+                     "pc", "private", "queen", "quit", "rose", "rib", "salute", "sir", "sit", "stable", "sustain", "success", "super", "superhero", "sad", "sun", "sunday",
                      "there", "then", "talk", "up", "umbrella", "very", "van", "wrose",
                      "wrap", "xerox", "yalk", "yes", "zygote", "zoo"};
 
@@ -140,7 +147,19 @@ int main()
     cin >> length;
 
     s += ch;
-    cout << "Suggested Words : " << endl;
+
     search(root, length, s);
+    if (counter != 0)
+    {
+        cout << "Suggested Words : " << endl;
+        for (int i = 0; i < counter; i++)
+        {
+            cout << output[i] << endl;
+        }
+    }
+    else
+    {
+        cout << "No word start with " << s << " and having length " << length << " is present!" << endl;
+    }
     return 0;
 }
