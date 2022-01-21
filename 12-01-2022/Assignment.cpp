@@ -1,4 +1,4 @@
-// cross word program using trie tree data structure.
+// cross word solver program .
 
 #include <iostream>
 #include <bits/stdc++.h>
@@ -55,7 +55,7 @@ string search(struct TrieNode *root, int length, string s)
 
     if (length == 1 && temp->children[s[0] - 'a'] && temp->children[s[0] - 'a']->isEndOfWord)
     {
-        // cout << "\t" << s << endl;
+
         output[counter++] = s;
         return s;
     }
@@ -64,7 +64,7 @@ string search(struct TrieNode *root, int length, string s)
     {
         if (s.length() == length)
         {
-            //cout << "\t" << s << endl;
+
             output[counter++] = s;
             return s;
         }
@@ -86,15 +86,13 @@ string search(struct TrieNode *root, int length, string s)
         if (temp->children[i] != NULL)
         {
             char ch = i + 'a';
-            //	cout<<"ch : "<<ch<<endl;
+
             str += ch;
             s += ch;
 
             if (str.length() > 1)
             {
-                //	cout<<"str : "<<str<<endl;
-                //	cout<<"s in if : "<<s<<endl;
-                //	int j = s.length() - str.length();
+
                 string str1;
 
                 for (int i = 0; i < s.length() - 2; i++)
@@ -104,8 +102,6 @@ string search(struct TrieNode *root, int length, string s)
 
                 str1 += str[str.length() - 1];
                 s = str1;
-
-                //	cout<<"s after str : "<<s<<endl;
             }
             search(temp->children[i], length, s);
         }
@@ -116,50 +112,79 @@ string search(struct TrieNode *root, int length, string s)
 
 int main()
 {
+    int choice;
+    string dictionary[] = {"a", "as", "at", "and", "axe", "around", "approximate", "assure", "ball", "boy", "bat", "box", "beat", "basket",
+                           "cat", "call", "catch", "cover", "cofee", "copy", "candle", "cream", "dead", "dash", "does", "define",
+                           "day", "dog", "dig", "date", "devloper", "elephant", "eat", "egg", "easy", "farm", "favour", "fish", "fat", "form", "fuzzy", "funny",
+                           "great", "goat", "gathere", "goverment", "get", "glimpse", "gave", "guts", "gone", "hi", "hello", "hike", "hour", "hat",
+                           "in", "ink", "india", "is", "ideal", "iterate", "if", "integer", "join", "jump", "jaguar", "joker", "jet", "just", "kilo",
+                           "king", "kite", "keen", "knowledge", "kind", "kernel", "karate", "letter", "life", "lily", "listen", "lion",
+                           "lie", "left", "leave", "let", "menu", "mouse", "my", "next", "new", "nothing", "ok", "online", "ox", "object", "over", "order", "overcome",
+                           "pc", "private", "queen", "quit", "rose", "rib", "salute", "sir", "sit", "stable", "sustain", "success", "super", "superhero", "sad", "sun", "sunday",
+                           "there", "then", "talk", "up", "umbrella", "very", "van", "wrose",
+                           "wrap", "xerox", "yalk", "yes", "zygote", "zoo"};
 
-    int length;
-    char ch;
-    string s = "";
-
-    string keys[] = {"a", "as", "at", "and", "axe", "around", "approximate", "assure", "ball", "boy", "bat", "box", "beat", "basket",
-                     "cat", "call", "catch", "cover", "cofee", "copy", "candle", "cream", "dead", "dash", "does", "define",
-                     "day", "dog", "dig", "date", "devloper", "elephant", "eat", "egg", "easy", "farm", "favour", "fish", "fat", "form", "fuzzy", "funny",
-                     "great", "goat", "gathere", "goverment", "get", "glimpse", "gave", "guts", "gone", "hi", "hello", "hike", "hour", "hat",
-                     "in", "ink", "india", "is", "ideal", "iterate", "if", "integer", "join", "jump", "jaguar", "joker", "jet", "just", "kilo",
-                     "king", "kite", "keen", "knowledge", "kind", "kernel", "karate", "letter", "life", "lily", "listen", "lion",
-                     "lie", "left", "leave", "let", "menu", "mouse", "my", "next", "new", "nothing", "ok", "online", "ox", "object", "over", "order", "overcome",
-                     "pc", "private", "queen", "quit", "rose", "rib", "salute", "sir", "sit", "stable", "sustain", "success", "super", "superhero", "sad", "sun", "sunday",
-                     "there", "then", "talk", "up", "umbrella", "very", "van", "wrose",
-                     "wrap", "xerox", "yalk", "yes", "zygote", "zoo"};
-
-    int n = sizeof(keys) / sizeof(keys[0]);
+    int n = sizeof(dictionary) / sizeof(dictionary[0]);
 
     struct TrieNode *root = getNode();
 
     // Construct a dictionary for crossword
     for (int i = 0; i < n; i++)
-        insert(root, keys[i]);
-
-    cout << "Enter First Letter of the Word  : ";
-    cin >> ch;
-
-    cout << "Enter length of the word : ";
-    cin >> length;
-
-    s += ch;
-
-    search(root, length, s);
-    if (counter != 0)
     {
-        cout << "Suggested Words : " << endl;
-        for (int i = 0; i < counter; i++)
+        insert(root, dictionary[i]);
+    }
+    cout << "Note: Please provide ? to the place of blank-space(first letter is mandatory) for eg." << endl
+         << "input:b???    output:ball,beat" << endl
+         << "input: ro?e   output:rose" << endl;
+    do
+    {
+
+        int length;
+        string inputWord;
+        string s = "";
+        flag = 1;
+        bool isEmpty = true;
+
+        cout << "Enter the input  : ";
+        cin >> inputWord;
+
+        length = inputWord.length();
+        s += inputWord[0];
+
+        search(root, length, s);
+        if (counter != 0)
         {
-            cout << output[i] << endl;
+            cout << "Suggested Words : " << endl;
+
+            for (int i = 0; i < counter; i++)
+            {
+                int flag1 = 1;
+                for (int j = 1; j < inputWord.length(); j++)
+                {
+                    if (isalpha(inputWord[j]))
+                    {
+                        if (inputWord[j] != output[i][j])
+                        {
+                            flag1 = 0;
+                        }
+                    }
+                }
+
+                if (flag1 == 1)
+                {
+                    isEmpty = false;
+                    cout << output[i] << endl;
+                }
+            }
         }
-    }
-    else
-    {
-        cout << "No word start with " << s << " and having length " << length << " is present!" << endl;
-    }
+        if (isEmpty)
+        {
+            cout << "No word present in dictionary ! " << endl;
+        }
+
+        cout << "Do You Want to continue?(1/0)" << endl;
+        cin >> choice;
+        counter = 0;
+    } while (choice == 1);
     return 0;
 }

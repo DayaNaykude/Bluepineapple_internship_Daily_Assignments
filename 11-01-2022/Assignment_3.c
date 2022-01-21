@@ -1,4 +1,4 @@
-//Write menu driven program in c for book management system
+//Write menu driven program for book management system using linked list
 
 #include <stdio.h>
 #include <stdlib.h>
