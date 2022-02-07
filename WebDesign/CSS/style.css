@@ -374,12 +374,16 @@ p {
   display: inline-block;
   padding: 2px 8px;
   width: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
 }
 
 .btn-plane {
   display: inline-block;
   margin: 0px 8px 5px;
   width: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
 }
 
 .top-margin-10 {
@@ -405,14 +409,16 @@ p {
   display: inline-block;
   margin-left: 10px;
 }
-
+.color-comments-shares {
+  color: rgb(67, 137, 230);
+}
 .text-blue {
   color: blue;
 }
 
 .search-block {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .progress-bar {
@@ -516,8 +522,16 @@ footer {
 }
 .lower-block-column-last {
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   margin-top: 10px;
+}
+.small-T-icon {
+  font-size: 12px;
+  font-weight: bold;
+}
+.large-T-icon {
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .box-110-80 {
@@ -526,9 +540,12 @@ footer {
   height: 80px;
   width: 110px;
   align-items: center;
+  margin-right: 5px;
   justify-content: center;
 }
-
+.margin-bottom-10 {
+  margin-bottom: 10px;
+}
 @media screen and (max-width: 760px) {
   .Active-predomination-btns {
     flex-direction: column;
