@@ -431,20 +431,6 @@ p {
 .light-gray {
   background-color: lightgray;
 }
-.color-green {
-  background-color: green;
-}
-
-.color-blue {
-  background-color: blue;
-}
-.color-orange {
-  background-color: orange;
-}
-
-.color-red {
-  background-color: red;
-}
 
 .progress-100 {
   display: flex;
@@ -453,6 +439,7 @@ p {
   height: 100%;
   align-items: center;
   justify-content: center;
+  background-color: rgb(16, 223, 78);
 }
 
 .progress-80 {
@@ -462,6 +449,7 @@ p {
   height: 100%;
   align-items: center;
   justify-content: center;
+  background-color: rgb(99, 212, 212);
 }
 
 .progress-45 {
@@ -471,6 +459,7 @@ p {
   height: 100%;
   align-items: center;
   justify-content: center;
+  background-color: orange;
 }
 
 .progress-35 {
@@ -480,6 +469,7 @@ p {
   height: 100%;
   align-items: center;
   justify-content: center;
+  background-color: rgb(209, 45, 45);
 }
 
 footer {
