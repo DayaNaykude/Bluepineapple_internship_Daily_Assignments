@@ -1,0 +1,13 @@
+.base-header {
+  text-align: center;
+  background-color: rgb(204, 240, 240);
+  height: auto;
+  padding: 10px;
+}
+.view-details-form{
+  
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
