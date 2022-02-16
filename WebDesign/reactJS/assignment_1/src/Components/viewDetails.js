@@ -35,6 +35,7 @@ const ViewDetails = () => {
                       id="form6Example1"
                       class="form-control"
                       value={location.state.firstName}
+                      disabled={true}
                     />
                     <label class="form-label" for="form6Example1">
                       First name
@@ -48,6 +49,7 @@ const ViewDetails = () => {
                       id="form6Example2"
                       class="form-control"
                       value={location.state.lastName}
+                      disabled={true}
                     />
                     <label class="form-label" for="form6Example2">
                       Last name
@@ -62,6 +64,7 @@ const ViewDetails = () => {
                   id="form6Example3"
                   class="form-control"
                   value={location.state.companeyName}
+                  disabled={true}
                 />
                 <label class="form-label" for="form6Example3">
                   Company name
@@ -74,6 +77,7 @@ const ViewDetails = () => {
                   id="form6Example4"
                   class="form-control"
                   value={location.state.Adrdress}
+                  disabled={true}
                 />
                 <label class="form-label" for="form6Example4">
                   Address
@@ -86,6 +90,7 @@ const ViewDetails = () => {
                   id="form6Example5"
                   class="form-control"
                   value={location.state.email}
+                  disabled={true}
                 />
                 <label class="form-label" for="form6Example5">
                   Email
@@ -98,6 +103,7 @@ const ViewDetails = () => {
                   id="form6Example6"
                   class="form-control"
                   value={location.state.phone}
+                  disabled={true}
                 />
                 <label class="form-label" for="form6Example6">
                   Phone
@@ -110,6 +116,7 @@ const ViewDetails = () => {
                   id="form6Example7"
                   rows="4"
                   value={location.state.additionalInformation}
+                  disabled={true}
                 ></textarea>
                 <label class="form-label" for="form6Example7">
                   Additional information

@@ -25,7 +25,6 @@
 .employee-row {
   border: 1px solid rgb(90, 83, 83);
   display: flex;
-  
 }
 .card-photo {
   width: 200px;
@@ -59,11 +58,13 @@
   .card-photo {
     width: 100px;
     height: 100px;
-    
   }
   .card-photo img {
     border: 10px solid rgb(163, 155, 155);
     width: 100px;
     height: 100px;
   }
+}
+.home-content {
+  padding: 40px;
 }

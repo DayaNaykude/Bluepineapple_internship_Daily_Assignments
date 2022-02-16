@@ -18,7 +18,7 @@ function Base({
       </div>
       <footer className="footer bg-dark mt-auto py-3">
         <div className="container-fluid bg-secondary text-white text-center py-3">
-          <h4>© 2022 Copyright: Dayanand.com</h4>
+          <h4>© 2022 Copyright: employeerecords.com</h4>
           <button className="btn btn-warning btn-sm">Contact Us</button>
         </div>
       </footer>
