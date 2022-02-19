@@ -2,21 +2,28 @@
 
 const findBoomerangs = (input) => {
   let outputArray = [];
-  let count = 0;
 
   for (let i = 0; i < input.length; i++) {
     let dummy = [];
     if (input[i] == input[i + 2] && input[i] != input[i + 1]) {
-      count++;
       dummy.push(input[i], input[i + 1], input[i + 2]);
-      outputArray.push(dummy)
-      console.log(dummy);
+      outputArray.push(dummy);
     }
   }
   return outputArray;
 };
 
-let inputArray = [3, 7, 3, 7, 1, 5, 1, 2, 2, -2, 2];
+let inputArray = [3, 7, 3, 2, 1, 5, 1, 2, 9, -2, 2];
 
 let result = findBoomerangs(inputArray);
-console.log(result);
+if (result.length != 0) {
+  console.log(
+    result.length +
+      " boomerangs in this sequence: " +
+      result.map((object) => {
+        return "[" + object + "]";
+      })
+  );
+} else {
+  console.log("No boomerangs present !");
+}

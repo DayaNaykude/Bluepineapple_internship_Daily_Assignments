@@ -1,1 +1,1 @@
-D35gf43
+productOfDigits *= inputNumber % 10;
