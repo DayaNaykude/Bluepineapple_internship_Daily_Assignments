@@ -4,7 +4,6 @@
 const countLoneOnes = (input) => {
   let count = 0;
   let inputInString = input.toString();
-
   if (inputInString[0] == 1 && inputInString[1] != inputInString[0]) {
     count++;
   }
