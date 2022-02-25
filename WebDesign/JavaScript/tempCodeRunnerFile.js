@@ -1,1 +1,1 @@
-productOfDigits *= inputNumber % 10;
+console.log("Arrow Function");
